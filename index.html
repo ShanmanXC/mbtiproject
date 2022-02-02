@@ -1,146 +1,30 @@
-<!DOCTYPE html>
-<!-- saved from url=(0048)https://getbootstrap.com/docs/4.0/examples/grid/ -->
-<html lang="en">
+<!-- most basic, used for Knobs demo -->
+<div class="range-slider" style='--min:0; --max:100; --step:5; --value:75; --text-value:"75";'>
+    <input type="range" min="0" max="100" step="5" value="75" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))">
+    <output></output>
+    <div class='range-slider__progress'></div>
+</div>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Single slider (with shadows) -->
+<div class="range-slider grad" style='--min:0; --max:10000; --step:100; --value:200; --text-value:"200"; --prefix:"$"'>
+    <input type="range" min="0" max="10000" step="100" value="200" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify((+this.value).toLocaleString()))">
+    <output></output>
+    <div class='range-slider__progress'></div>
+</div>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+<!-- Double range slider (flat design)  -->
+<div class="range-slider flat" data-ticks-position='top' style='--min:-500; --max:500; --value-a:-220; --value-b:400; --suffix:"%"; --text-value-a:"-220"; --text-value-b:"400";'>
+    <input type="range" min="-500" max="500" value="-220" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+    <output></output>
+    <input type="range" min="-500" max="500" value="400" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+    <output></output>
+    <div class='range-slider__progress'></div>
+</div>
 
-    <title>Grid Template for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/grid/">
-
-    <!-- Bootstrap core CSS -->
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://shanmanxc.github.io/mbtiproject/main/css/grid.css" rel="stylesheet">
-</head>
-
-<body cz-shortcut-listen="true">
-    <div class="container">
-
-        <h1>Bootstrap grid examples</h1>
-        <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
-
-        <h3>Five grid tiers</h3>
-        <p>There are five tiers to the Bootstrap grid system, one for each range of devices we support. Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
-
-        <div class="row">
-            <div class="col-4">.col-4</div>
-            <div class="col-4">.col-4</div>
-            <div class="col-4">.col-4</div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">.col-sm-4</div>
-            <div class="col-sm-4">.col-sm-4</div>
-            <div class="col-sm-4">.col-sm-4</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4">.col-lg-4</div>
-            <div class="col-lg-4">.col-lg-4</div>
-            <div class="col-lg-4">.col-lg-4</div>
-        </div>
-
-        <div class="row">
-            <div class="col-xl-4">.col-xl-4</div>
-            <div class="col-xl-4">.col-xl-4</div>
-            <div class="col-xl-4">.col-xl-4</div>
-        </div>
-
-        <h3>Three equal columns</h3>
-        <p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>. On mobile devices, tablets and below, the columns will automatically stack.</p>
-        <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-
-        <h3>Three unequal columns</h3>
-        <p>Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths. Remember, grid columns should add up to twelve for a single horizontal block. More than that, and columns start stacking no matter the viewport.</p>
-        <div class="row">
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-6">.col-md-6</div>
-            <div class="col-md-3">.col-md-3</div>
-        </div>
-
-        <h3>Two columns</h3>
-        <p>Get two columns <strong>starting at desktops and scaling to large desktops</strong>.</p>
-        <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-
-        <h3>Full width, single column</h3>
-        <p class="text-warning">No grid classes are necessary for full-width elements.</p>
-
-        <hr>
-
-        <h3>Two columns with two nested columns</h3>
-        <p>Per the documentation, nesting is easy—just put a row of columns within an existing column. This gives you two columns <strong>starting at desktops and scaling to large desktops</strong>, with another two (equal widths) within the larger column.</p>
-        <p>At mobile device sizes, tablets and down, these columns and their nested columns will stack.</p>
-        <div class="row">
-            <div class="col-md-8">
-                .col-md-8
-                <div class="row">
-                    <div class="col-md-6">.col-md-6</div>
-                    <div class="col-md-6">.col-md-6</div>
-                </div>
-            </div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-
-        <hr>
-
-        <h3>Mixed: mobile and desktop</h3>
-        <p>The Bootstrap v4 grid system has five tiers of classes: xs (extra small), sm (small), md (medium), lg (large), and xl (extra large). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
-        <p>Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.</p>
-        <div class="row">
-            <div class="col-12 col-md-8">.col-12 .col-md-8</div>
-            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-        </div>
-        <div class="row">
-            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-        </div>
-        <div class="row">
-            <div class="col-6">.col-6</div>
-            <div class="col-6">.col-6</div>
-        </div>
-
-        <hr>
-
-        <h3>Mixed: mobile, tablet, and desktop</h3>
-        <p></p>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-8">.col-12 .col-sm-6 .col-lg-8</div>
-            <div class="col-6 col-lg-4">.col-6 .col-lg-4</div>
-        </div>
-        <div class="row">
-            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
-            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
-            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
-        </div>
-
-    </div>
-    <!-- /container -->
-
-
-</body>
-
-</html>
+<!-- Double range slider with different CSS variables & all possible values printed across -->
+<div class="range-slider overlay" style='--min:0; --max:10; --value-a:2; --value-b:5; --text-value-a:"2"; --text-value-b:"5";'>
+    <input type="range" min="0" max="10" value="2" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+    <input type="range" min="0" max="10" value="5" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+    <div class='range-slider__values'>0 1 2 3 4 5 6 7 8 9 10</div>
+    <div class='range-slider__progress'></div>
+</div>
